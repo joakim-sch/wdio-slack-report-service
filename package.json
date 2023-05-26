@@ -1,0 +1,42 @@
+﻿{
+  "name": "wdio-slack-report-service",
+  "version": "0.0.1",
+  "description": "WebdriverIO library to send custom test report summaries to slack",
+  "engines": {
+    "node": ">=16"
+  },
+  "main": "index.ts",
+  "types": "globals.ts",
+  "scripts": {
+    "build": "tsc --build tsconfig.json",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joakim-sch/wdio-slack-report-service"
+  },
+  "files": [
+    "lib",
+    "globals.ts",
+    "index.ts"
+  ],
+  "keywords": [
+    "webdriverio",
+    "wdio",
+    "slack"
+  ],
+  "author": "joakim-sch",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joakim-sch/wdio-slack-report-service/issues"
+  },
+  "homepage": "https://github.com/joakim-sch/wdio-slack-report-service#readme",
+  "dependencies": {
+    "@wdio/cli": "^8.10.5",
+    "@slack/types": "^2.8.0",
+    "@slack/web-api": "^6.8.1",
+    "@wdio/types": "^8.10.2",
+    "rimraf": "^5.0.1",
+    "typescript": "^5.0.4"
+  }
+}

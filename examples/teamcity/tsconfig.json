@@ -1,0 +1,16 @@
+﻿{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "types": [
+      "node",
+      "@wdio/globals/types",
+      "expect-webdriverio",
+      "@wdio/mocha-framework"
+    ],
+    "target": "es2022",
+    "esModuleInterop": true,
+    "resolveJsonModule": true
+  },
+  "include": ["./wdio.conf.ts", "./src/**/*"]
+}

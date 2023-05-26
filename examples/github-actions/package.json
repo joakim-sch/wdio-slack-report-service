@@ -1,0 +1,20 @@
+﻿{
+  "name": "@example/github-actions",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "tsc --build tsconfig.json",
+    "wdio": "wdio run wdio.conf.ts"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "wdio-slack-report-service": "../../",
+    "@wdio/browser-runner": "^8.10.5",
+    "@wdio/cli": "^8.10.5",
+    "@wdio/mocha-framework": "^8.10.4",
+    "@wdio/spec-reporter": "^8.10.5",
+    "chromedriver": "^113.0.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4",
+    "wdio-chromedriver-service": "^8.1.1"
+  }
+}

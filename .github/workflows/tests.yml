@@ -1,0 +1,19 @@
+﻿  name: Tests
+  
+  on:
+    push:
+      branches:
+        [main]
+    pull_request:
+      types:
+        [synchronize, opened, reopened]
+      
+  jobs:
+    Test-Examples:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout repo
+          uses: actions/checkout@v3
+          
+        - name: Install dependencies
+          run: npm ci
