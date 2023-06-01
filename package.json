@@ -5,10 +5,13 @@
   "engines": {
     "node": ">=16"
   },
-  "main": "index.ts",
-  "types": "globals.ts",
+  "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
-    "build": "tsc --build tsconfig.json",
+    "prepublish": "npm run compile",
+    "build": "npm run clean && npm run compile",
+    "clean": "rimraf ./build",
+    "compile": "tsc --build tsconfig.json",
     "test": "test"
   },
   "repository": {
@@ -17,8 +20,10 @@
   },
   "files": [
     "lib",
-    "globals.ts",
-    "index.ts"
+    "types.ts",
+    "index.ts",
+    "LICENSE",
+    "README.md"
   ],
   "keywords": [
     "webdriverio",
