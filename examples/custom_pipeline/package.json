@@ -15,6 +15,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "wdio-slack-report-service": "../../",
     "@wdio/cli": "^8.10.6",
     "@wdio/local-runner": "^8.10.6",
     "@wdio/mocha-framework": "^8.10.6",
