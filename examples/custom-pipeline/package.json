@@ -1,21 +1,14 @@
 {
-  "name": "wdio-slack-report-service",
+  "name": "@example/custom-pipeline",
   "version": "1.0.0",
-  "description": "WebdriverIO library to send custom test report summaries to slack",
-  "main": "index.ts",
   "scripts": {
-    "test": "test",
-    "init": "tsc --init",
+    "test": "npm run wdio",
     "wdio": "wdio run ./wdio.conf.ts"
   },
-  "repository": {
-    "type": "git",
-    "url": "gitrepohere"
-  },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
-    "wdio-slack-report-service": "../../",
+    "wdio-slack-report-service": "../../build/",
     "@wdio/cli": "^8.10.6",
     "@wdio/local-runner": "^8.10.6",
     "@wdio/mocha-framework": "^8.10.6",
