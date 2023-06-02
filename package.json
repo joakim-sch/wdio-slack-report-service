@@ -5,8 +5,8 @@
   "engines": {
     "node": ">=16"
   },
-  "main": "index.js",
-  "types": "index.d.ts",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
   "scripts": {
     "prepublish": "npm run compile",
     "build": "npm run clean && npm run compile",
