@@ -1,0 +1,21 @@
+{
+  "name": "@example/custom-pipeline",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "npm run wdio",
+    "wdio": "wdio run ./wdio.conf.ts"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "wdio-slack-report-service": "../../build/",
+    "@wdio/cli": "^8.10.6",
+    "@wdio/local-runner": "^8.10.6",
+    "@wdio/mocha-framework": "^8.10.6",
+    "@wdio/spec-reporter": "^8.10.6",
+    "chromedriver": "^113.0.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4",
+    "wdio-chromedriver-service": "^8.1.1"
+  }
+}

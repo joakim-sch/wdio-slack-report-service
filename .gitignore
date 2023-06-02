@@ -1,0 +1,4 @@
+﻿/.idea
+.npmrc
+/node_modules
+/build
