@@ -12,6 +12,6 @@ jobs:
   publish-npm:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ github.event.inputs.version }}
+      - run: npm unpublish wdio-slack-report-service@${{ github.event.inputs.version }}
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
