@@ -1,4 +1,6 @@
-﻿export default class SlackMessageEnhancer {
+﻿import {SlackFailedTest, SlackServiceOptions} from "../types";
+
+export default class SlackMessageEnhancer {
     levenshteinLimit: number
     linesLimit: number
     charLimit: number

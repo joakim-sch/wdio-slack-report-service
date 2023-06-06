@@ -1,6 +1,7 @@
 ﻿import {ChatPostMessageArguments, FilesInfoResponse, LogLevel, WebAPICallResult, WebClient} from "@slack/web-api";
 import {FilesUploadV2Arguments} from "@slack/web-api/dist/methods";
 import path from "path";
+import {SlackFailedTest, SlackServiceOptions} from "../types";
 
 export default class SlackClient {
     private client: WebClient

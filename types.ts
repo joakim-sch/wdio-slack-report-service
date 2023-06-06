@@ -1,4 +1,4 @@
-﻿interface SlackFailedTest {
+﻿export interface SlackFailedTest {
     title: string,
     errormessage: string,
     image?: string
@@ -8,10 +8,10 @@
     deleted?: boolean
 }
 
-declare type SlackServiceOptions = BaseSlackOptions | DeploySlackOptions
-declare type DeploySlackOptions = CustomSlackOptions | TeamCitySlackOptions | GitHubActionsSlackOptions
+export declare type SlackServiceOptions = BaseSlackOptions | DeploySlackOptions
+export declare type DeploySlackOptions = CustomSlackOptions | TeamCitySlackOptions | GitHubActionsSlackOptions
 
-interface BaseSlackOptions {
+export interface BaseSlackOptions {
     enable: boolean
     dataFolder?: string,
     slackToken: string,
@@ -30,26 +30,26 @@ interface MessageOptions {
     shortenCombinedBlocks?: boolean,
     failedTestBlockLimit?: number
 }
-interface CustomSlackOptions extends BaseSlackOptions{
+export interface CustomSlackOptions extends BaseSlackOptions{
     deployPipeline: DeployPipeline.Custom,
     buildUrl: string,
     reportUrl?: string
 }
-interface TeamCitySlackOptions extends BaseSlackOptions {
+export interface TeamCitySlackOptions extends BaseSlackOptions {
     deployPipeline: DeployPipeline.TeamCity,
     teamCityBaseUrl: string,
     teamCityBuildId: string,
     teamCityBuildTypeId: string,
     reportTabName?: string
 }
-interface GitHubActionsSlackOptions extends BaseSlackOptions {
+export interface GitHubActionsSlackOptions extends BaseSlackOptions {
     deployPipeline: DeployPipeline.GitHubActions,
     gitHubRepoUrl: string
     gitHubActionRunNr: number | string
     gitHubPagesBaseUrl?: string,
     gitHubPagesVersion?: number | string
 }
-enum DeployPipeline {
+export enum DeployPipeline {
     Custom = 'Custom',
     TeamCity = 'TeamCity',
     GitHubActions = 'GitHubActions'

@@ -9,6 +9,7 @@ import SlackMessageBuilder from "./SlackMessageBuilder";
 import SlackMessageEnhancer from "./SlackMessageEnhancer";
 import path from "path";
 import {ChatPostMessageArguments} from "@slack/web-api";
+import {SlackServiceOptions, SlackFailedTest} from "../types"
 
 export class SlackService implements Services.ServiceInstance {
     private serviceOptions: SlackServiceOptions
@@ -65,7 +66,7 @@ export class SlackService implements Services.ServiceInstance {
 
 
     /*HOOKS*/
-    onPrepare(config: Testrunner, capabilities: RemoteCapabilities): void | Promise<void> {
+    async onPrepare(config: Testrunner, capabilities: RemoteCapabilities): Promise<void> {
         if (this.serviceOptions.enable){
             initDebugLog(this.serviceOptions.debug)
             if (this.serviceOptions.debug) {
@@ -73,14 +74,14 @@ export class SlackService implements Services.ServiceInstance {
                 safeServiceOptions.slackToken = "*hidden*"
                 debugLog("serviceOptions:" + JSON.stringify(this.serviceOptions, null, 4))
             }
-            FileUtils.deleteIfExists(`.${path.sep}${this.dataFolder}${path.sep}`, "*");
+            await FileUtils.deleteIfExists(`.${path.sep}${this.dataFolder}${path.sep}`);
             FileUtils.createIfNotExists(`.${path.sep}${this.dataFolder}${path.sep}`);
         }
     }
 
     async afterTest(test: Test, context: any, result: TestResult): Promise<void> {
         if (this.serviceOptions.enable) {
-            if (test._currentRetry === test._retries || test._retries === 0) {
+            if (test._currentRetry === test._retries || test._retries === -1) {
                 this.totalTests++
                 if (!result.passed) {
                     const datenow: string = this.serviceOptions.imgShareChannelId ? Date.now().toString() : undefined
@@ -144,5 +145,3 @@ export class SlackService implements Services.ServiceInstance {
         }
     }
 }
-
-module.exports = SlackService
