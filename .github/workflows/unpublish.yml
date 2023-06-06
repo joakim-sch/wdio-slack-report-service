@@ -1,0 +1,17 @@
+name: Unpublish
+
+on:
+  workflow_dispatch:
+    inputs:
+      version: 
+        description: "Version to unpublish"
+        required: true
+        default: ""
+
+jobs:
+  publish-npm:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo ${{ github.event.inputs.version }}
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
