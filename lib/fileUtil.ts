@@ -1,5 +1,5 @@
 ﻿import fs from "fs";
-import rimraf from "rimraf";
+import {rimraf} from "rimraf";
 import path from "path";
 import {debugLog} from "./logger";
 
@@ -10,9 +10,9 @@ export class FileUtils {
         }
     }
 
-    static deleteIfExists(directory: string, filePattern: string) {
+    static async deleteIfExists(directory: string) {
         if (fs.existsSync(directory)){
-            rimraf.sync(`${directory}${path.sep}${filePattern}`);
+            await rimraf(`${directory}`);
         }
     }
 

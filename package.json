@@ -1,6 +1,6 @@
 ﻿{
   "name": "wdio-slack-report-service",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "WebdriverIO library to send custom test report summaries to slack",
   "engines": {
     "node": ">=16"

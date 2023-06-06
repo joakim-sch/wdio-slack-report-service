@@ -1,1 +1,3 @@
 ﻿/node_modules
+/slack
+wdio-slack-report-service-debug.log

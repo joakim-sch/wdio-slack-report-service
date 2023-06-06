@@ -1,5 +1,6 @@
 ﻿import {KnownBlock, DividerBlock, ImageElement, ActionsBlock, ContextBlock} from "@slack/types";
 import {ChatPostMessageArguments} from "@slack/web-api";
+import {DeployPipeline, DeploySlackOptions, SlackFailedTest, SlackServiceOptions} from "../types";
 
 export default class SlackMessageBuilder {
     failedTestBlockLimit: number
@@ -9,11 +10,11 @@ export default class SlackMessageBuilder {
 
     constructor(options: SlackServiceOptions) {
         this.slackChannelId = options.slackChannelId
-        if (options.messageOptions) {
-            this.failedTestBlockLimit = options.messageOptions.failedTestBlockLimit ? options.messageOptions.failedTestBlockLimit : 3
-            this.messagePrefix = options.messageOptions.messagePrefix ? options.messageOptions.messagePrefix.trimEnd() + ": " : ""
-            this.slackNotification = options.slackNotification ? options.slackNotification : 'WDIO Test report'
-        }
+        options.messageOptions = options.messageOptions ? options.messageOptions : {} 
+        this.failedTestBlockLimit = options.messageOptions.failedTestBlockLimit ? options.messageOptions.failedTestBlockLimit : 3
+        this.messagePrefix = options.messageOptions.messagePrefix ? options.messageOptions.messagePrefix.trimEnd() + ": " : ""
+        this.slackNotification = options.slackNotification ? options.slackNotification : 'WDIO Test report'
+        
     }
 
     createInitialMessage(): ChatPostMessageArguments {

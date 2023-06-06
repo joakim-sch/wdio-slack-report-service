@@ -1,5 +1,14 @@
 import type { Options } from '@wdio/types'
 import {SlackService} from "wdio-slack-report-service";
+import {SlackServiceOptions} from "wdio-slack-report-service/types";
+
+const slackOptions: SlackServiceOptions = {
+    enable: true,
+    slackChannelId: "C123456789",
+    slackToken: "THIS_IS_A_TOKEN",
+    imgShareChannelId: "C987654321",
+    debug: true,
+}
 
 export const config: Options.Testrunner = {
     runner: 'local',
@@ -31,11 +40,7 @@ export const config: Options.Testrunner = {
     connectionRetryCount: 3,
 
     services: ['chromedriver',
-        [SlackService, {
-            enable: true,
-            slackToken: "C12345678",
-            slackChannelId: "C1234556"
-        }]
+        [SlackService, slackOptions]
     ],
     
     framework: 'mocha',
